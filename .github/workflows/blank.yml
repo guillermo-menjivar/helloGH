@@ -22,6 +22,16 @@ jobs:
     strategy:
       matrix: 
         patterns: [rockets, rokens, flowers]
+        include:
+         - patterns: rockets
+           us: true
+           int: false
+         - patterns: rokens
+           us: true
+           int: false
+         - patterns: flowers
+           us: false 
+           int: true    
       
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,12 +43,14 @@ jobs:
         run: echo Hello, world!
       
       - name: idk
-        if: ${{ startsWith(matrix.patterns, 'ro') }}
+        if: ${{ matrix.us }}
+        #if: ${{ startsWith(matrix.patterns, 'ro') }}
         run: echo We are the x team
       
       - name: dki
         #if: ${{ startsWith(matrix.patterns, 'fl') }}
-        if: false == contains('ro', ${{ matrix.patterns }})
+        #if: false == contains('ro', ${{ matrix.patterns }})
+        if: ${{ matrix.int }}
         run: echo We are the y team ${{ matrix.patterns }} matrix.patterns
 
       # Runs a set of commands using the runners shell
