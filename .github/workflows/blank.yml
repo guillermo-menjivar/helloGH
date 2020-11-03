@@ -37,7 +37,7 @@ jobs:
         run: echo We are the x team
       
       - name: dki
-        if: false == startsWith(${{ matrix.region }}, 'ro')
+        if: false == startsWith(${{ matrix.region }}, 'fl')
         run: echo We are the y team
 
       # Runs a set of commands using the runners shell
