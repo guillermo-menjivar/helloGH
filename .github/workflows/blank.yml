@@ -38,8 +38,8 @@ jobs:
       
       - name: dki
         #if: ${{ startsWith(matrix.patterns, 'fl') }}
-        if: false == contains('ro', matrix.patterns)
-        run: echo We are the y team
+        if: false == contains('ro', ${{ matrix.patterns }})
+        run: echo We are the y team ${{ matrix.patterns }} matrix.patterns
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
