@@ -38,7 +38,7 @@ jobs:
       
       - name: dki
         #if: ${{ startsWith(matrix.patterns, 'fl') }}
-        if: !${{ startswith(matrix.patterns, 'ro') }}
+        if: "!${{ startswith(matrix.patterns, 'ro') }}"
         run: echo We are the y team
 
       # Runs a set of commands using the runners shell
